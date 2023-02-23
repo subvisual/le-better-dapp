@@ -4,24 +4,25 @@ import { WagmiConfig } from "wagmi";
 import { wagmiClient } from "./lib/wagmiClient";
 import App from "./App";
 import "./index.css";
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Link,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
 import Nfts from "./components/Nfts";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/nft",
-    element: <Nfts />,
-  },
-]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <WagmiConfig client={wagmiClient}>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/nft" element={<Nfts />} />
+        </Routes>
+      </BrowserRouter>
     </WagmiConfig>
   </React.StrictMode>
 );
