@@ -5,12 +5,14 @@ import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 
 const { provider, webSocketProvider, chains } = configureChains(
   [mainnet, goerli],
-  [publicProvider()]
+  [publicProvider()],
+  { pollingInterval: 10_000 }
 );
 
 export const wagmiClient = createClient({
   provider,
   webSocketProvider,
+
   connectors: [
     new InjectedConnector({ chains }),
     new WalletConnectConnector({

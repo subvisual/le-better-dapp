@@ -4,14 +4,24 @@ import { WagmiConfig } from "wagmi";
 import { wagmiClient } from "./lib/wagmiClient";
 import App from "./App";
 import "./index.css";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import Nfts from "./components/Nfts";
 
-// Global polyfill for WalletConnect to work
-(window as any).global = window;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/nft",
+    element: <Nfts />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <WagmiConfig client={wagmiClient}>
-      <App />
+      <RouterProvider router={router} />
     </WagmiConfig>
   </React.StrictMode>
 );

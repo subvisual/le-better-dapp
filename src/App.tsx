@@ -1,9 +1,8 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
 import { useAccount } from "wagmi";
 import Connect from "./components/Connect";
 import USDCDetails from "./components/USDCDetails";
+import "./App.css";
+import { Link } from "react-router-dom";
 
 function App() {
   const { address, isConnected } = useAccount();
@@ -16,6 +15,7 @@ function App() {
         <>
           <p>Hello, {address}</p>
           <USDCDetails />
+          <Link to="/nft">go to nfts</Link>
         </>
       ) : (
         <Connect />

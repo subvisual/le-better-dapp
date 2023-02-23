@@ -15,11 +15,15 @@ export default function USDCDetails() {
   const [to, setTo] = useState<`0x${string}`>();
 
   const { address } = useAccount();
+
+  // Get the balance of x token
   const { data: balance } = useBalance({
     address,
     token: USDC_CONTRACT,
-    formatUnits: 6,
+    formatUnits: 6
   });
+
+  // Prepare transaction with args
   const { config } = usePrepareContractWrite({
     address: USDC_CONTRACT,
     abi: erc20ABI,
@@ -29,6 +33,7 @@ export default function USDCDetails() {
   });
   const { data, isLoading, write } = useContractWrite(config);
 
+  // on form submit
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
@@ -38,7 +43,9 @@ export default function USDCDetails() {
   return (
     <div className="token-section">
       <h3>USDC (wink wink)</h3>
-      <strong>Balance: {balance?.formatted}</strong>
+      <strong>
+        Balance: {balance?.formatted} {balance?.symbol}
+      </strong>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

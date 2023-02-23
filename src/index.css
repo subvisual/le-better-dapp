@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(45deg, #0d0d2a, transparent);
+  background: linear-gradient(45deg, #0d0d2a, #111);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,7 +34,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.2rem;
   line-height: 1.1;
 }
 
@@ -120,4 +120,28 @@ input {
 
 .token-section button {
   margin-top: 0.5rem;
+}
+.gallery-title {
+  margin: 4rem 0;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.gallery img,
+.gallery video {
+  margin: 0.5rem 0;
+  max-width: 100%;
+  width: 300px;
+  border-radius: 8px;
+}
+.gallery h3 {
+  font-weight: 600;
+  font-size: 1.35rem;
+}
+@media screen and (max-width: 40em) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 }
