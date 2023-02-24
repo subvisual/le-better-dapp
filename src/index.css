@@ -5,7 +5,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background: linear-gradient(45deg, #0d0d2a, #111);
 
@@ -56,6 +55,7 @@ button {
   transition: border-color 0.25s;
   text-transform: uppercase;
   filter: drop-shadow(3px 4px 0 #0d0d2a);
+  color: rgba(255, 255, 255, 0.87);
 }
 button:hover {
   border-color: #646cff;
@@ -63,19 +63,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
 input {
