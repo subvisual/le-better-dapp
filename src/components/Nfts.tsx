@@ -29,10 +29,13 @@ const ENDPOINT =
 // source: https://thegraph.com/hosted-service/subgraph/chainsafe/goerli-all-nft
 
 export default function Nfts() {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any[]>([]);
 
   const queryTheGraph = async () => {
     try {
+      setLoading(true);
+
       const req = await request(ENDPOINT, query);
 
       const ipfsSrc = req.tokens
@@ -45,6 +48,8 @@ export default function Nfts() {
       setData(ipfsSrc);
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,6 +63,13 @@ export default function Nfts() {
         <h1>Very good NFT gallery</h1>
         <Link to="/">go to money</Link>
       </div>
+
+      {loading && (
+        <div className="gallery-loader">
+          <p>Loading...</p>
+        </div>
+      )}
+
       <section className="gallery">
         {data?.map((item) => (
           <div key={item.id}>

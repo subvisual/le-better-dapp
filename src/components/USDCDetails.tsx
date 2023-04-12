@@ -1,6 +1,7 @@
 import { parseUnits } from "ethers/lib/utils.js";
 import { FormEvent, useState } from "react";
 import {
+  Address,
   erc20ABI,
   useAccount,
   useBalance,
@@ -12,7 +13,7 @@ const USDC_CONTRACT = "0x7b8E5E828480B1D6ea62f0194E565982285ffe67";
 
 export default function USDCDetails() {
   const [amount, setAmount] = useState<string>();
-  const [to, setTo] = useState<`0x${string}`>();
+  const [to, setTo] = useState<Address>();
 
   const { address } = useAccount();
 
@@ -28,8 +29,8 @@ export default function USDCDetails() {
     address: USDC_CONTRACT,
     abi: erc20ABI,
     functionName: "transfer",
-    args: [to as `0x${string}`, parseUnits(amount || "0", 6)],
-    enabled: !!(address && amount),
+    args: [to as Address, parseUnits(amount || "0", 6)],
+    enabled: !!(to && amount),
   });
   const { data, isLoading, write } = useContractWrite(config);
 

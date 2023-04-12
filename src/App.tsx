@@ -1,7 +1,6 @@
 import { useAccount } from "wagmi";
 import Connect from "./components/Connect";
 import USDCDetails from "./components/USDCDetails";
-import "./App.css";
 import { Link } from "react-router-dom";
 
 function App() {

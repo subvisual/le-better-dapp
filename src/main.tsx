@@ -4,14 +4,7 @@ import { WagmiConfig } from "wagmi";
 import { wagmiClient } from "./lib/wagmiClient";
 import App from "./App";
 import "./index.css";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Link,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nfts from "./components/Nfts";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

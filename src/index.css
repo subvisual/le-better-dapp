@@ -15,6 +15,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -126,6 +133,12 @@ input {
 .gallery h3 {
   font-weight: 600;
   font-size: 1.35rem;
+}
+.gallery-loader {
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  text-align: center;
 }
 @media screen and (max-width: 40em) {
   .gallery {
